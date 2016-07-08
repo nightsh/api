@@ -459,6 +459,10 @@ definitions:
         type: object
         items:
           $ref: '#/definitions/Discrepancies'
+      documents:
+        type: array
+        items:
+          $ref: '#/definitions/Document'
 
   TrialLocation:
     allOf:
@@ -754,6 +758,23 @@ definitions:
       record_id:
         type: string
       source_name:
+        type: string
+
+  Document:
+    required:
+      - name
+      - type
+      - url
+    properties:
+      name:
+        type: string
+      type:
+        type: string
+        enum:
+          - csr
+          - epar_segment
+          - blank_consent_form
+      url:
         type: string
 
   Source:
